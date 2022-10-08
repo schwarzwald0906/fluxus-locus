@@ -7,10 +7,10 @@ WORKDIR /code
 RUN ls
 RUN go mod download
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -o main cmd/api/main.go && chmod +x ./main
+RUN go build -ldflags "-s -w" -o /main server.go && chmod +x /main
 #release環境
 FROM alpine:3.14 as release
 WORKDIR /app
 COPY --from=build /main ./
 # コンテナを立ち上げたとき、勝手にWeb サーバーを立ち上げる
-CMD [“./main”]
+CMD ["./main"]  
