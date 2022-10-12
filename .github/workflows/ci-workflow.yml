@@ -17,7 +17,7 @@ jobs:
 
     - name: Unit Test
       run: cd ${{ github.workspace }}
-    - run: cd graphql-test-api &&  go test -v ./…
+    - run: cd graphql-test-api && go test -v ./…
 
     - name: Success
       uses: rtCamp/action-slack-notify@v2.0.2
@@ -36,7 +36,7 @@ jobs:
         SLACK_MESSAGE: Message for Failure
 
     - name: Cancel
-      uses: rtCamp/action-slack-notify@v2.0.2
+      uses: rtCamp/action-slack-notify@v2.0.2 
       if: cancelled()
       env:
         SLACK_TITLE: CI flow / Cancel
