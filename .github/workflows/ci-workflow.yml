@@ -17,7 +17,7 @@ jobs:
 
     - name: Unit Test
       run: cd ${{ github.workspace }}
-    - run: cd graphql-test-api && sudo npm install && go test -v ./…
+    - run: cd graphql-test-api && go test -v ./…
 
     - name: Success
       uses: rtCamp/action-slack-notify@v2.0.2
