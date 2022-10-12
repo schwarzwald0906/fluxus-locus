@@ -14,7 +14,6 @@ env:
   BACKEND_CONTAINER_NAME: ecs-sample-backend
   WEBAPP_TAG: 1.0.0
   BACKEND_TAG: 1.0.0
-  SLACK_WEBHOOK: https://xxxxxxxx ##change this URL!!
 
 jobs:
   deploy:
