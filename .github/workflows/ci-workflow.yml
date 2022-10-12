@@ -21,11 +21,8 @@ jobs:
       with:
         go-version: ^1.19
 
-    - run: ls -a
     - name: Unit Test
-      run: cd ${{ github.workspace }}
-    - run: pwd 
-    - run: cd ./graphql-test-api && go test -v ./…
+    - run: go test -v ./…
 
     - name: Success
       uses: rtCamp/action-slack-notify@v2.0.2
