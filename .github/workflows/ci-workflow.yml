@@ -21,6 +21,7 @@ jobs:
     - run: ls -a
     - name: Unit Test
       run: cd ${{ github.workspace }}
+    - run: pwd  
     - run: cd ./graphql-test-api && go test -v ./…
 
     - name: Success
