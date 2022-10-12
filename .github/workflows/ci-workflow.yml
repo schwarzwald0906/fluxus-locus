@@ -14,10 +14,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: ^1.19
 
     - name: Unit Test
       run: cd ${{ github.workspace }}
-    - run: cd graphql-test-api && go test -v ./…
+    - run: cd ./graphql-test-api && setup go && go test -v ./…
 
     - name: Success
       uses: rtCamp/action-slack-notify@v2.0.2
