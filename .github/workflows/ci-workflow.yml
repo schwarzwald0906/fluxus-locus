@@ -8,6 +8,7 @@ env:
 jobs:
   ci:
     name: ci
+    working-directory: ./graphql-test-api
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -21,7 +22,7 @@ jobs:
     - run: ls -a
     - name: Unit Test
       run: cd ${{ github.workspace }}
-    - run: pwd  
+    - run: pwd 
     - run: cd ./graphql-test-api && go test -v ./…
 
     - name: Success
