@@ -54,7 +54,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       run: |
-        cd graphql-test-backend
+        cd graphql-test-api
         docker build -t $ECR_REGISTRY/$BACKEND_CONTAINER_NAME:$BACKEND_TAG .
         docker tag $ECR_REGISTRY/$BACKEND_CONTAINER_NAME:$BACKEND_TAG $ECR_REGISTRY/$BACKEND_CONTAINER_NAME:latest
         docker push $ECR_REGISTRY/$BACKEND_CONTAINER_NAME:$BACKEND_TAG
