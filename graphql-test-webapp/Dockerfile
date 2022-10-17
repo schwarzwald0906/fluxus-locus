@@ -12,7 +12,9 @@ ENV NODE_ENV production
 COPY ./package.json ./yarn.lock ./
 RUN yarn
 COPY . .
+RUN true
 COPY --from=builder /app/public ./public
+RUN true
 COPY --from=builder /app/.next ./.next
 EXPOSE 3000
 ENV PORT 3000
