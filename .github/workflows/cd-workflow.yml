@@ -3,7 +3,7 @@ name: CD flow for Amazon ECS
 on: 
   pull_request:
     branches:
-      -master
+      - master
     types: [closed]
 
 env:
