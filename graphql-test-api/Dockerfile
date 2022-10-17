@@ -2,6 +2,7 @@
 FROM golang:1.17.3-alpine3.14 as build
 WORKDIR /usr/src/app
 COPY go.mod /code/go.mod
+RUN true
 COPY go.sum /code/go.sum
 WORKDIR /code
 RUN ls
