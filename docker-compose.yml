@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0.29
+    platform: linux/x86_64
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
