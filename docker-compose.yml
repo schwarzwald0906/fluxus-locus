@@ -6,6 +6,8 @@ services:
     platform: linux/x86_64
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
+      LANG: C.UTF-8
+      TZ: Asia/Tokyo
     volumes:
       - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
