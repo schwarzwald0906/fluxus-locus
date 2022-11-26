@@ -6,7 +6,7 @@ show tables;
 
 CREATE TABLE `categories` (
   `category_id` char(36),
-  `large_category_id` varchar(64) not null,
+  `large_category_id` char(36) not null,
   `category_titie` varchar(256) not null, 
   `category_description` varchar(256) not null, 
   `category_name` varchar(64) not null, 
@@ -18,7 +18,7 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `blogs_categories` (
   `blog_id` char(36),
-  `category_id` varchar(64),
+  `category_id` char(36),
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`, `category_id`),
@@ -27,7 +27,7 @@ CREATE TABLE `blogs_categories` (
 
 CREATE TABLE `tmp_blogs_categories` (
   `blog_id` char(36),
-  `category_id` varchar(64),
+  `category_id` char(36),
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`, `category_id`),
