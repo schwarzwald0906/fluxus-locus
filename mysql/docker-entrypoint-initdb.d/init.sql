@@ -66,6 +66,3 @@ CREATE TABLE `user` (
   UNIQUE KEY (`user_mail`)
 );
 show tables;
-
-create user 'myuser'@'%' identified by 'password';
-grant select,insert,update,delete on mydb.* to 'myuser'@'%';
