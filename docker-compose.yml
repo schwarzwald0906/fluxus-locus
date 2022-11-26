@@ -7,8 +7,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydb
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASS}
       LANG: C.UTF-8
       TZ: Asia/Tokyo
     volumes:

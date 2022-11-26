@@ -5,7 +5,7 @@ use mydb;
 show tables;
 
 CREATE TABLE `categories` (
-  `category_id` char(36) not null,
+  `category_id` char(36),
   `large_category_id` varchar(64) not null,
   `category_titie` varchar(256) not null, 
   `category_description` varchar(256) not null, 
@@ -17,8 +17,8 @@ CREATE TABLE `categories` (
 );
 
 CREATE TABLE `blogs_categories` (
-  `blog_id` char(36) not null,
-  `category_id` varchar(64) not null,
+  `blog_id` char(36),
+  `category_id` varchar(64),
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`, `category_id`),
@@ -26,8 +26,8 @@ CREATE TABLE `blogs_categories` (
 );
 
 CREATE TABLE `tmp_blogs_categories` (
-  `blog_id` char(36) not null,
-  `category_id` varchar(64) not null,
+  `blog_id` char(36),
+  `category_id` varchar(64),
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`, `category_id`),
@@ -35,7 +35,7 @@ CREATE TABLE `tmp_blogs_categories` (
 );
 
 CREATE TABLE `blogs` (
-  `blog_id` char(36) not null,
+  `blog_id` char(36),
   `blog_title` varchar(64) not null,
   `blog_content` text not null,
   `picture_url` varchar(256) not null,
@@ -46,7 +46,7 @@ CREATE TABLE `blogs` (
 );
 
 CREATE TABLE `tmp_blogs` (
-  `blog_id` char(36) not null,
+  `blog_id` char(36),
   `blog_title` varchar(64) null,
   `blog_content` text null,
   `picture_url` varchar(256) null,
@@ -57,7 +57,7 @@ CREATE TABLE `tmp_blogs` (
 );
 
 CREATE TABLE `user` (
-  `user_id` char(36) not null,
+  `user_id` char(36),
   `user_mail` varchar(64) not null,
   `password` varchar(64) not null,
   `created_at` timestamp not null default current_timestamp,
@@ -67,4 +67,5 @@ CREATE TABLE `user` (
 );
 show tables;
 
-grant select,insert,update,delete on mydb.* to 'myuser';
+create user 'myuser'@'%' identified by 'password';
+grant select,insert,update,delete on mydb.* to 'myuser'@'%';
