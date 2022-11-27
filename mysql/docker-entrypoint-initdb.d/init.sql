@@ -22,7 +22,7 @@ CREATE TABLE `blogs_categories` (
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`, `category_id`),
-  FOREIGN KEY(`category_id`) REFERENCES `categories`(`category_id`)
+  FOREIGN KEY(`category_id`,`large_category_id`) REFERENCES `categories`(`category_id`,`large_category_id`)
 );
 
 CREATE TABLE `tmp_blogs_categories` (
@@ -31,7 +31,7 @@ CREATE TABLE `tmp_blogs_categories` (
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`, `category_id`),
-  FOREIGN KEY(`category_id`) REFERENCES `categories`(`category_id`)
+  FOREIGN KEY(`category_id`,`large_category_id`) REFERENCES `categories`(`category_id`,`large_category_id`)
 );
 
 CREATE TABLE `blogs` (
