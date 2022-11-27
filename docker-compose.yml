@@ -14,3 +14,7 @@ services:
     volumes:
       - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
+      - data-volume:/var/lib/mysql
+
+volumes:
+ data-volume:
