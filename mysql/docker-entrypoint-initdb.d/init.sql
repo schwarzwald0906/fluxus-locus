@@ -6,7 +6,7 @@ show tables;
 
 CREATE TABLE `categories` (
   `category_id` char(36),
-  `large_category_id` char(36) not null,
+  `large_category_id` char(36) null,
   `category_titie` varchar(256) not null, 
   `category_description` varchar(256) not null, 
   `category_name` varchar(64) not null, 
@@ -41,8 +41,7 @@ CREATE TABLE `blogs` (
   `picture_url` varchar(256) not null,
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
-  PRIMARY KEY (`blog_id`),
-  FOREIGN KEY(`blog_id`) REFERENCES `blogs_categories`(`blog_id`)
+  PRIMARY KEY (`blog_id`)
 );
 
 CREATE TABLE `tmp_blogs` (
