@@ -13,25 +13,8 @@ CREATE TABLE `categories` (
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`category_id`),
+  FOREIGN KEY(`large_category_id`) REFERENCES `categories`(`category_id`),
   UNIQUE KEY (`category_titie`,`category_description`, `category_name` )
-);
-
-CREATE TABLE `blogs_categories` (
-  `blog_id` char(36),
-  `category_id` char(36),
-  `created_at` timestamp not null default current_timestamp,
-  `updated_at` timestamp not null,
-  PRIMARY KEY (`blog_id`, `category_id`),
-  FOREIGN KEY(`category_id`,`large_category_id`) REFERENCES `categories`(`category_id`,`large_category_id`)
-);
-
-CREATE TABLE `tmp_blogs_categories` (
-  `blog_id` char(36),
-  `category_id` char(36),
-  `created_at` timestamp not null default current_timestamp,
-  `updated_at` timestamp not null,
-  PRIMARY KEY (`blog_id`, `category_id`),
-  FOREIGN KEY(`category_id`,`large_category_id`) REFERENCES `categories`(`category_id`,`large_category_id`)
 );
 
 CREATE TABLE `blogs` (
@@ -52,7 +35,26 @@ CREATE TABLE `tmp_blogs` (
   `created_at` timestamp not null default current_timestamp,
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`)
+);
 
+CREATE TABLE `blogs_categories` (
+  `blog_id` char(36),
+  `category_id` char(36),
+  `created_at` timestamp not null default current_timestamp,
+  `updated_at` timestamp not null,
+  PRIMARY KEY (`blog_id`, `category_id`),
+  FOREIGN KEY(`category_id`) REFERENCES `categories`(`category_id`),
+  FOREIGN KEY(`blog_id`) REFERENCES `categories`(`blogs`)
+);
+
+CREATE TABLE `tmp_blogs_categories` (
+  `blog_id` char(36),
+  `category_id` char(36),
+  `created_at` timestamp not null default current_timestamp,
+  `updated_at` timestamp not null,
+  PRIMARY KEY (`blog_id`, `category_id`),
+  FOREIGN KEY(`category_id`) REFERENCES `categories`(`category_id`),
+  FOREIGN KEY(`blog_id`) REFERENCES `categories`(`tmp_blogs`)
 );
 
 CREATE TABLE `user` (
@@ -64,4 +66,5 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY (`user_mail`)
 );
+
 show tables;
