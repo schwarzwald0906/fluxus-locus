@@ -54,7 +54,7 @@ CREATE TABLE `tmp_blogs_categories` (
   `updated_at` timestamp not null,
   PRIMARY KEY (`blog_id`, `category_id`),
   FOREIGN KEY(`category_id`) REFERENCES `categories`(`category_id`),
-  FOREIGN KEY(`blog_id`) REFERENCES `categories`(`tmp_blogs`)
+  FOREIGN KEY(`blog_id`) REFERENCES `tmp_blogs`(`blog_id`)
 );
 
 CREATE TABLE `user` (
